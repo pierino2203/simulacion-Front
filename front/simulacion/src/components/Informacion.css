@@ -1,0 +1,121 @@
+.informacion-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.main-nav {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+    padding: 15px;
+    background-color: #f0f9f0;
+    border-radius: 8px;
+}
+
+.main-nav button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #2d862d;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: 600;
+}
+
+.main-nav button:hover {
+    background-color: #1f5e1f;
+}
+
+.container {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 40px;
+}
+
+.container h2 {
+    color: #2d862d;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 2em;
+}
+
+.info-section {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.info-section p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.contact-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 30px 0;
+}
+
+.contact-list li {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f0f9f0;
+    border-radius: 8px;
+    border-left: 4px solid #2d862d;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.contact-list .icon {
+    font-size: 1.5em;
+}
+
+.contact-list strong {
+    color: #2d862d;
+    margin-right: 10px;
+    font-weight: 600;
+}
+
+.contact-list a {
+    color: #2d862d;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.contact-list a:hover {
+    color: #1f5e1f;
+    text-decoration: underline;
+}
+
+.direccion {
+    text-align: center;
+    margin: 30px 0;
+    padding: 15px;
+    background-color: #f0f9f0;
+    border-radius: 8px;
+    border-left: 4px solid #2d862d;
+}
+
+.direccion strong {
+    color: #2d862d;
+    font-weight: 600;
+}
+
+.mapa-contenedor {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.mapa-contenedor iframe {
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+} 
