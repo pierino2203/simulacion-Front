@@ -12,7 +12,7 @@ export const loginUser = createAsyncThunk(
     'auth/login',
     async (credentials, { rejectWithValue }) => {
         try {
-            const response = await axios.post('http://localhost:3001/user/login', credentials);
+            const response = await axios.post('https://simulacion-back.onrender.com/user/login', credentials);
             // Guardamos el token en localStorage
             localStorage.setItem('token', JSON.stringify(response.data.token));
             return response.data;

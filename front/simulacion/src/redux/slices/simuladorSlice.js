@@ -7,7 +7,7 @@ export const getSimulaciones = createAsyncThunk(
     async () => {
         try {
             console.log('Obteniendo simulaciones del backend...');
-            const response = await axios.get('http://localhost:3001/simulacion');
+            const response = await axios.get('https://simulacion-back.onrender.com/simulacion');
             console.log('Simulaciones obtenidas:', response.data);
             return response.data.data; // Retornamos directamente el array de simulaciones
         } catch (error) {
@@ -23,7 +23,7 @@ export const postSimulacion = createAsyncThunk(
     async (simulacionData) => {
         try {
             console.log('Enviando datos al backend:', simulacionData);
-            const response = await axios.post('http://localhost:3001/simulacion', simulacionData);
+            const response = await axios.post('https://simulacion-back.onrender.com/simulacion', simulacionData);
             console.log('Respuesta del backend:', response.data);
             return response.data;
         } catch (error) {

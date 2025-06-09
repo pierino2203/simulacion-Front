@@ -26,37 +26,6 @@ export function Historial() {
         ).join(' ');
     };
 
-    // Función para formatear la temperatura
-    const formatearTemperatura = (temp) => {
-        const temperaturas = {
-            'menor5': 'Menor a 5°C',
-            'entre5y10': 'Entre 5°C y 10°C',
-            'entre10y15': 'Entre 10°C y 15°C',
-            'entre15y20': 'Entre 15°C y 20°C',
-            'mayor20': 'Mayor a 20°C'
-        };
-        return temperaturas[temp] || formatearTexto(temp);
-    };
-
-    // Función para formatear el mes
-    const formatearMes = (mes) => {
-        const meses = {
-            'enero': 'Enero',
-            'febrero': 'Febrero',
-            'marzo': 'Marzo',
-            'abril': 'Abril',
-            'mayo': 'Mayo',
-            'junio': 'Junio',
-            'julio': 'Julio',
-            'agosto': 'Agosto',
-            'septiembre': 'Septiembre',
-            'octubre': 'Octubre',
-            'noviembre': 'Noviembre',
-            'diciembre': 'Diciembre'
-        };
-        return meses[mes.toLowerCase()] || formatearTexto(mes);
-    };
-
     return (
         <div className="historial-container">
             <nav className="main-nav">
@@ -68,9 +37,8 @@ export function Historial() {
             <div className="container">
                 <h2>Historial de Simulaciones</h2>
                 <p>
-                    En esta pestaña se listan las simulaciones realizadas. Cada registro incluye la fecha de ejecución, 
-                    los valores ingresados por el usuario y el resultado obtenido. Sirve como referencia para analizar 
-                    condiciones simuladas en distintos escenarios.
+                    En esta sección se muestran todas las simulaciones realizadas, incluyendo el tipo de daño detectado,
+                    el porcentaje de afectación y las recomendaciones generadas para cada caso.
                 </p>
 
                 {loading ? (
@@ -85,17 +53,25 @@ export function Historial() {
                             <div key={item._id || index} className="historial-item">
                                 <div className="historial-header">
                                     <strong>Simulación #{simulaciones.length - index}</strong>
+                                    <span className="fecha">
+                                        {new Date(item.fecha).toLocaleString()}
+                                    </span>
                                 </div>
-                                <div className="historial-fecha">
-                                    <u>Fecha:</u> {new Date(item.fecha).toLocaleString()}
-                                </div>
-                                <div className="historial-grid">
-                                    <div><u>Temperatura:</u> {formatearTemperatura(item.temperatura)}</div>
-                                    <div><u>Mes de Siembra:</u> {formatearMes(item.mesSiembra)}</div>
-                                    <div><u>Humedad:</u> {formatearTexto(item.humedad)}</div>
-                                    <div><u>Porcentaje de Afectación:</u> {formatearTexto(item.porcentajeAfectacion)}</div>
-                                    <div><u>Resultado:</u> {formatearTexto(item.resultado)}</div>
-                                    <div><u>Acción Recomendada:</u> {formatearTexto(item.accionRecomendada)}</div>
+                                <div className="historial-content">
+                                    <div className="historial-info">
+                                        <div className="info-item">
+                                            <span className="label">Tipo de Daño:</span>
+                                            <span className="value">{formatearTexto(item.tipoDanio)}</span>
+                                        </div>
+                                        <div className="info-item">
+                                            <span className="label">Porcentaje de Afectación:</span>
+                                            <span className="value">{item.porcentaje}</span>
+                                        </div>
+                                        <div className="info-item recomendacion">
+                                            <span className="label">Recomendación:</span>
+                                            <span className="value">{item.recomendacion}</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         ))}
